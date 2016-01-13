@@ -1,8 +1,13 @@
 # Minitest::Metz
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/minitest/metz`. To experiment with that code, run `bin/console` for an interactive prompt.
+Minitest::Metz is a Minitest plugin that under it's hood hides the [SandiMeter](https://github.com/makaroni4/sandi_meter).
+It allows you to easily apply Sandi Metz's [four rules for developers](https://robots.thoughtbot.com/sandi-metz-rules-for-developers)
+on your tests.
 
-TODO: Delete this and the text above, and describe your gem
+## Why?
+
+Because tests are code. Especially in Minitest, where each test file is a subclass
+of `Minitest::Test`.
 
 ## Installation
 
@@ -22,7 +27,37 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+There two ways that you can use this plugin:
+
+### `--metz`
+
+You can apply the `--metz` flag when you are running your tests. If present, the
+plugin will run the `sandi_meter` for the test that ran.
+
+### `assert_obey_metz`
+
+If you are willing of writing tests around the four rules, you can assert on
+them. If you want to test the test class for the four rules:
+
+```ruby
+class PersonTest < Minitest::Test
+  def test_sandi_four_rules
+    assert_obey_metz(self.class)
+    # Or..
+    assert_obey_metz(PersonTest)
+  end
+end
+```
+
+If you want to test another class:
+
+```ruby
+class PersonTest < Minitest::Test
+  def test_sandi_four_rules
+    assert_obey_metz(Person)
+  end
+end
+```
 
 ## Development
 
@@ -32,5 +67,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/minitest-metz.
+Bug reports and pull requests are welcome on GitHub at https://github.com/fteem/minitest-metz.
 
