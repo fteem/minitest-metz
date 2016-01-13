@@ -1,5 +1,8 @@
 module Minitest
   module Metz
-    # Your code goes here...
+
+    class Runner
+    end
+
   end
 end

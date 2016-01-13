@@ -5,4 +5,9 @@ module Minitest
     end
   end
 
+  def self.plugin_metz_init(options)
+    if options[:metz]
+      self.reporter << Minitest::Metz::StatsReporter.new(options[:io], options)
+    end
+  end
 end
