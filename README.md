@@ -37,7 +37,9 @@ plugin will run the `sandi_meter` for the test that ran.
 ### `assert_obey_metz`
 
 If you are willing of writing tests around the four rules, you can assert on
-them. If you want to test the test class for the four rules:
+them. The assertions works on basically any type of class, whether it is a test
+class or a production class. If you want to test the test class for the four
+rules:
 
 ```ruby
 class PersonTest < Minitest::Test
@@ -69,8 +71,8 @@ class PersonTest < Minitest::Test
 end
 ```
 
-And, of course, you can use `refute_obey_metz`, although I have no idea why would
-you. But anyway, it's available for use. Have fun.
+And, of course, you can use `refute_obey_metz`, although I have no idea why
+would you. But anyway, it's available for use. Have fun.
 
 ## Development
 
