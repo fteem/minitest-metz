@@ -59,6 +59,19 @@ class PersonTest < Minitest::Test
 end
 ```
 
+Also, there's the option on asserting on a file path:
+
+```ruby
+class PersonTest < Minitest::Test
+  def test_sandi_four_rules
+    assert_obey_metz("lib/person/person.rb")
+  end
+end
+```
+
+And, of course, you can use `refute_obey_metz`, although I have no idea why would
+you. But anyway, it's available for use. Have fun.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
